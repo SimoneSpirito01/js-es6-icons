@@ -113,6 +113,25 @@ const cards = [
 	}
 ];
 
+// popolo un'array con le option da aggiungere al select
+let value = ['all'];
+cards.forEach(element => {
+	if (!(value.includes(element.type))){
+		value.push(element.type);
+	}
+});
+
+// genero le option dinamicamente
+const select = document.querySelector('select');
+value.forEach(element => {
+	let option = 
+	`
+	<option value="${element}">${element}</option>
+	`
+	select.innerHTML += option;
+})
+
+
 // genero un colore random
 const randomColor = () => {
 	let char = '#';
@@ -141,7 +160,6 @@ const addCard = (element => {
 cards.forEach(addCard);
 
 // al change del select value, modifico le card stampate
-const select = document.querySelector('select');
 select.addEventListener('change', function(){
 	document.querySelector('.container').innerHTML = '';
 	let fCards = cards.filter(card => {
@@ -153,5 +171,7 @@ select.addEventListener('change', function(){
 	});
 	fCards.forEach(addCard);
 })
+
+
 
 
