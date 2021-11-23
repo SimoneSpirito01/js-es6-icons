@@ -113,7 +113,20 @@ const cards = [
 	}
 ];
 
+// genero un colore random
+const randomColor = () => {
+	let char = '#';
+	const array = [1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+	for (let i = 0; i < 6; i++){
+		x = Math.floor(Math.random() * 15);
+		char += array[x];
+	}
+	return char;
+}
+
+// creo le card
 const addCard = (element => {
+	element.color = randomColor();
 	let card = 
 	`
 	<div class="card">
@@ -124,9 +137,10 @@ const addCard = (element => {
 	document.querySelector('.container').innerHTML += card;
 })
 
+
 cards.forEach(addCard);
 
-
+// al change del select value, modifico le card stampate
 const select = document.querySelector('select');
 select.addEventListener('change', function(){
 	document.querySelector('.container').innerHTML = '';
@@ -139,3 +153,5 @@ select.addEventListener('change', function(){
 	});
 	fCards.forEach(addCard);
 })
+
+
