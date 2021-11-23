@@ -43,8 +43,10 @@ main {
 }
 
 .container {
+    min-height: calc(100vh - 140px);
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .card {

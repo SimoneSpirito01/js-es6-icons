@@ -113,16 +113,29 @@ const cards = [
 	}
 ];
 
-let card = '';
-
-cards.forEach(element => {
-	card += 
+const addCard = (element => {
+	let card = 
 	`
 	<div class="card">
 		<i style="color:${element.color}"class="${element.family} ${element.prefix}${element.name}"></i>
 		<span>${element.name}</span>
     </div>
 	`
+	document.querySelector('.container').innerHTML += card;
 })
 
-document.querySelector('.container').innerHTML = card;
+cards.forEach(addCard);
+
+
+const select = document.querySelector('select');
+select.addEventListener('change', function(){
+	document.querySelector('.container').innerHTML = '';
+	let fCards = cards.filter(card => {
+		if (this.value == 'all'){
+			return true
+		} else {
+			return card.type == this.value;
+		}
+	});
+	fCards.forEach(addCard);
+})
