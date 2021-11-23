@@ -54,4 +54,19 @@ main {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     border-radius: 15px;
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card i {
+    font-size: 45px;
+}
+
+.card span {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 3px;
 }

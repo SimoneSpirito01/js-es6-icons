@@ -1,4 +1,4 @@
-[
+const cards = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,17 @@
 		color: 'blue'
 	}
 ];
+
+let card = '';
+
+cards.forEach(element => {
+	card += 
+	`
+	<div class="card">
+		<i style="color:${element.color}"class="${element.family} ${element.prefix}${element.name}"></i>
+		<span>${element.name}</span>
+    </div>
+	`
+})
+
+document.querySelector('.container').innerHTML = card;
